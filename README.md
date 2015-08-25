@@ -11,3 +11,7 @@ This repo is part of an automated build, which is hosted on Docker Hub ( <https:
 ## Manual
 
 If one wishes to develop this repo, building will need to be performed manually. This container can be built simply by `cd`ing into the repo and using `docker build -t <NAME> .` where `<NAME>` is the name tagged to the image built. More information about building can be found in Docker's documentation ( <https://docs.docker.com/reference/builder> ). Please consider opening a pull request for changes that you make.
+
+# Testing
+
+Only releases of `nanshe` are installed in this repo. As `nanshe` is only released if it passes a build and is actively tested in this exact same environment, no further testing is performed.

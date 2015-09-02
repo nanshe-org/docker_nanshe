@@ -11,9 +11,10 @@ RUN conda config --add channels jakirkham && \
 
 RUN git clone https://github.com/jakirkham/nanshe /nanshe && \
     cd /nanshe && \
-    git checkout v`conda list -f nanshe 2>/dev/null | \
-                   tail -1 | \
-                   python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
+    NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
+                    tail -1 | \
+                    python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
+    git checkout "v${NANSHE_VERSION}" && \
     conda remove -y nanshe && \
     /usr/share/docker/entrypoint.sh nosetests && \
     conda install -y nanshe && \

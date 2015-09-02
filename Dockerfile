@@ -20,5 +20,6 @@ RUN NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
     conda remove -y nanshe && \
     /usr/share/docker/entrypoint.sh nosetests && \
     conda install -y nanshe && \
+    conda clean -tipsy && \
     cd / && \
     rm -rf /nanshe

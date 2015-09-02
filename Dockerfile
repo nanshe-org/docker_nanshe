@@ -19,7 +19,7 @@ RUN NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
     git checkout "v${NANSHE_VERSION}" && \
     conda remove -y nanshe && \
     /usr/share/docker/entrypoint.sh nosetests && \
-    conda install -y nanshe && \
+    conda install -y `find /opt/conda/pkgs -name "nanshe-${NANSHE_VERSION}-*py27*.tar.bz2"` && \
     conda clean -tipsy && \
     cd / && \
     rm -rf /nanshe

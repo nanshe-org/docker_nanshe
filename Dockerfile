@@ -8,3 +8,14 @@ RUN conda config --add channels jakirkham && \
     conda remove -y -n _build --all && \
     conda remove -y -n _test --all && \
     conda clean -tipsy
+
+RUN git clone https://github.com/jakirkham/nanshe /nanshe && \
+    cd /nanshe && \
+    git checkout v`conda list -f nanshe 2>/dev/null | \
+                   tail -1 | \
+                   python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
+    conda remove -y nanshe && \
+    nosetests && \
+    conda install -y nanshe && \
+    cd / && \
+    rm -rf /nanshe

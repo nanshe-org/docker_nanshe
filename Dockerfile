@@ -15,7 +15,7 @@ RUN git clone https://github.com/jakirkham/nanshe /nanshe && \
                    tail -1 | \
                    python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
     conda remove -y nanshe && \
-    nosetests && \
+    /usr/share/docker/entrypoint.sh nosetests && \
     conda install -y nanshe && \
     cd / && \
     rm -rf /nanshe

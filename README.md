@@ -16,7 +16,7 @@ If one wishes to develop this repo, building will need to be performed manually.
 
 # Testing
 
-Only releases of `nanshe` are installed in this repo. As `nanshe` is only released if it passes a build and is actively tested in this exact same environment, no further testing is performed. The container used by this container as a base, `jakirkham/centos_drmaa_conda`, is tested independently. As a result, this container does not have any test of its own.
+Only releases of `nanshe` are installed in this repo. `nanshe` is only released if it passes a build and is actively tested in this exact same environment. That being said, the test suite is run for the installed release of `nanshe` during the build phase. If it fails, the build phase will be interrupted and the container will not be released. The container used by this container as a base, `jakirkham/centos_drmaa_conda`, is tested independently. As a result, this container does not have any test of its own.
 
 # Usage
 

@@ -7,7 +7,9 @@ RUN conda config --add channels jakirkham && \
     rm -rf /opt/conda/conda-bld/work/* && \
     conda remove -y -n _build --all && \
     conda remove -y -n _test --all && \
-    conda clean -tipsy
+    cp /opt/conda/pkgs/nanshe-*.tar.bz2 / && \
+    conda clean -tipsy && \
+    mv /nanshe-*.tar.bz2 /opt/conda/pkgs/
 
 RUN NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
                     tail -1 | \

@@ -14,7 +14,7 @@ RUN conda config --add channels nanshe && \
 RUN NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
                     tail -1 | \
                     python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
-    curl -L "https://github.com/jakirkham/nanshe/archive/v${NANSHE_VERSION}.tar.gz" | tar -xzf - && \
+    curl -L "https://github.com/nanshe-org/nanshe/archive/v${NANSHE_VERSION}.tar.gz" | tar -xzf - && \
     mv "/nanshe-${NANSHE_VERSION}" /nanshe && \
     cd /nanshe && \
     conda remove -y nanshe && \

@@ -8,7 +8,7 @@ Provides the latest release of `nanshe` and dependencies installed in a supporte
 
 ## Automatic
 
-This repo is part of an automated build, which is hosted on Docker Hub ( <https://registry.hub.docker.com/u/nanshe/nanshe> ). Changes added to this trigger an automatic rebuild and deploy the resulting image to Docker Hub. To download an existing image, one simply needs to run `docker pull nanshe/nanshe`.
+This repo is part of an automated build, which is hosted on Docker Hub ( <https://hub.docker.com/r/nanshe/nanshe> ). Changes added to this trigger an automatic rebuild and deploy the resulting image to Docker Hub. To download an existing image, one simply needs to run `docker pull nanshe/nanshe`.
 
 ## Manual
 

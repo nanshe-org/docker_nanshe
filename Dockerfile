@@ -2,7 +2,7 @@ FROM jakirkham/centos_drmaa_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN conda config --add channels nanshe && \
-    conda install -y --use-local -n root python=2.7 nanshe && \
+    conda install -y --use-local -n root python=2.7 nomkl nanshe && \
     conda update -y --all && \
     rm -rf /opt/conda/conda-bld/work/* && \
     conda remove -y -n _build --all && \

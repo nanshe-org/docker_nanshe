@@ -18,7 +18,7 @@ RUN NANSHE_VERSION=`conda2 list -f nanshe 2>/dev/null | \
     mv "/nanshe-${NANSHE_VERSION}" /nanshe && \
     cd /nanshe && \
     conda2 remove -y nanshe && \
-    /usr/share/docker/entrypoint.sh python setup.py test && \
+    /usr/share/docker/entrypoint.sh python2 setup.py test && \
     conda2 install -y `find /opt/conda2/pkgs -name "nanshe-${NANSHE_VERSION}-*py27*.tar.bz2"` && \
     conda2 clean -tipsy && \
     cd / && \

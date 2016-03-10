@@ -8,9 +8,12 @@ RUN for PYTHON_VERSION in 2 3; do \
         rm -rf /opt/conda${PYTHON_VERSION}/conda-bld/work/* && \
         conda${PYTHON_VERSION} remove -y -n _build --all && \
         conda${PYTHON_VERSION} remove -y -n _test --all && \
-        cp /opt/conda${PYTHON_VERSION}/pkgs/nanshe-*.tar.bz2 / && \
+        NANSHE_VERSION=`conda${PYTHON_VERSION} list -f nanshe 2>/dev/null | \
+                        tail -1 | \
+                        python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
+        cp /opt/conda${PYTHON_VERSION}/pkgs/nanshe-${NANSHE_VERSION}-*.tar.bz2 / && \
         conda${PYTHON_VERSION} clean -tipsy && \
-        mv /nanshe-*.tar.bz2 /opt/conda${PYTHON_VERSION}/pkgs/ ; \
+        mv /nanshe-${NANSHE_VERSION}-*.tar.bz2 /opt/conda${PYTHON_VERSION}/pkgs/ ; \
     done
 
 RUN for PYTHON_VERSION in 2 3; do \

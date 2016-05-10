@@ -2,6 +2,7 @@ FROM jakirkham/centos_drmaa_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN for PYTHON_VERSION in 2 3; do \
+        conda${PYTHON_VERSION} config --add channels conda-forge && \
         conda${PYTHON_VERSION} config --add channels nanshe && \
         conda${PYTHON_VERSION} install -y --use-local -n root nomkl nanshe && \
         conda${PYTHON_VERSION} update -y --all && \

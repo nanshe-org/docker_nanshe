@@ -2,7 +2,6 @@ FROM jakirkham/centos_drmaa_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 RUN for PYTHON_VERSION in 2 3; do \
-        echo "hdf5 ==1.8.15.1" >> /opt/conda${PYTHON_VERSION}/conda-meta/pinned && \
         conda${PYTHON_VERSION} config --add channels conda-forge && \
         conda${PYTHON_VERSION} config --add channels nanshe && \
         conda${PYTHON_VERSION} install -y --use-local -n root nomkl nanshe && \

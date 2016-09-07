@@ -2,5 +2,8 @@
 .git
 .gitignore
 
+# CI
+circle.yml
+
 # Documentation
 README.md

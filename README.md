@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/nanshe-org/docker_nanshe/tree/master.svg?style=shield)](https://circleci.com/gh/nanshe-org/docker_nanshe/tree/master)
 [![](https://badge.imagelayers.io/nanshe/nanshe:latest.svg)](https://imagelayers.io/?images=nanshe/nanshe:latest 'Get your own badge on imagelayers.io')
 
 # Purpose

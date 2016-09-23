@@ -7,9 +7,6 @@ RUN for PYTHON_VERSION in 2 3; do \
         conda config --add channels nanshe && \
         conda install -qy --use-local -n root nomkl nanshe && \
         conda update -qy --all && \
-        rm -rf ${INSTALL_CONDA_PATH}/conda-bld/work/* && \
-        conda remove -qy -n _build --all && \
-        conda remove -qy -n _test --all && \
         NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
                         tail -1 | \
                         python -c "from sys import stdin; print(stdin.read().split()[1])"` && \

@@ -4,6 +4,9 @@ MAINTAINER John Kirkham <jakirkham@gmail.com>
 RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate root && \
+        rm "/opt/conda${PYTHON_VERSION}/conda-meta/pinned" && \
+        touch "/opt/conda${PYTHON_VERSION}/conda-meta/pinned" && \
+        conda install -qy -n root conda-build=2 && \
         conda config --add channels nanshe && \
         conda install -qy -n root nanshe && \
         conda update -qy --all && \

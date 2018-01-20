@@ -1,6 +1,8 @@
 FROM jakirkham/centos_drmaa_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
+ENV OPENBLAS_NUM_THREADS=1
+
 RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate root && \

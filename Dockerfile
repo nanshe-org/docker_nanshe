@@ -6,6 +6,7 @@ ENV OPENBLAS_NUM_THREADS=1
 RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate root && \
+        echo "tifffile 0.12.1" >> "/opt/conda${PYTHON_VERSION}/conda-meta/pinned" && \
         conda config --add channels nanshe && \
         conda install -qy -n root nanshe && \
         conda update -qy --all && \

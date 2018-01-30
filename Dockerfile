@@ -1,4 +1,4 @@
-FROM jakirkham/centos_drmaa_conda:latest
+FROM jakirkham/centos_conda:latest
 MAINTAINER John Kirkham <jakirkham@gmail.com>
 
 ENV OPENBLAS_NUM_THREADS=1
@@ -28,7 +28,7 @@ RUN for PYTHON_VERSION in 2 3; do \
         mv "/nanshe-${NANSHE_VERSION}" /nanshe && \
         cd /nanshe && \
         conda remove -qy nanshe && \
-        /usr/share/docker/entrypoint.sh /usr/share/docker/entrypoint_2.sh python${PYTHON_VERSION} setup.py test && \
+        /usr/share/docker/entrypoint.sh python${PYTHON_VERSION} setup.py test && \
         conda install -qy `find ${INSTALL_CONDA_PATH}/pkgs -name "nanshe-${NANSHE_VERSION}-*.tar.bz2"` && \
         conda clean -tipsy && \
         cd / && \

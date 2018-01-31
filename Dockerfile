@@ -13,6 +13,7 @@ RUN for PYTHON_VERSION in 2 3; do \
         SITE_PKGS_PATH=`python -c "import site; print(site.getsitepackages()[0])"` && \
         echo 'import os; import sys; os.environ["MPLCONFIGDIR"] = os.path.join(sys.prefix, "share", "matplotlib")' >> \
              "${SITE_PKGS_PATH}/sitecustomize.py" && \
+        python -c "import matplotlib; import matplotlib.pyplot" && \
         NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
                         tail -1 | \
                         python -c "from sys import stdin; print(stdin.read().split()[1])"` && \

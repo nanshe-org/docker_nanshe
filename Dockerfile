@@ -7,7 +7,7 @@ RUN for PYTHON_VERSION in 2 3; do \
         export INSTALL_CONDA_PATH="/opt/conda${PYTHON_VERSION}" && \
         . ${INSTALL_CONDA_PATH}/bin/activate && \
         conda config --system --add channels nanshe && \
-        conda install -qy -n root nanshe && \
+        conda install -qy nanshe && \
         conda update -qy --all && \
         SITE_PKGS_PATH=`python -c "import site; print(site.getsitepackages()[0])"` && \
         echo 'import os; import sys; os.environ["MPLCONFIGDIR"] = os.path.join(sys.prefix, "share", "matplotlib")' >> \

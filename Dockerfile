@@ -17,11 +17,9 @@ RUN for PYTHON_VERSION in 2 3; do \
         NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
                         tail -1 | \
                         python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
-        cp ${INSTALL_CONDA_PATH}/pkgs/nanshe-${NANSHE_VERSION}-*.tar.bz2 / && \
         conda clean -tipsy && \
         conda deactivate && \
-        rm -rf ~/.conda && \
-        mv /nanshe-${NANSHE_VERSION}-*.tar.bz2 ${INSTALL_CONDA_PATH}/pkgs/ ; \
+        rm -rf ~/.conda ; \
     done
 
 RUN for PYTHON_VERSION in 2 3; do \
@@ -34,9 +32,7 @@ RUN for PYTHON_VERSION in 2 3; do \
         curl -L "https://github.com/nanshe-org/nanshe/archive/v${NANSHE_VERSION}.tar.gz" | tar -xzf - && \
         mv "/nanshe-${NANSHE_VERSION}" /nanshe && \
         cd /nanshe && \
-        conda remove -qy nanshe && \
         /usr/share/docker/entrypoint.sh python${PYTHON_VERSION} setup.py test && \
-        conda install -qy `find ${INSTALL_CONDA_PATH}/pkgs -name "nanshe-${NANSHE_VERSION}-*.tar.bz2"` && \
         conda clean -tipsy && \
         conda deactivate && \
         rm -rf ~/.conda && \

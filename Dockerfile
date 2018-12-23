@@ -14,9 +14,6 @@ RUN for PYTHON_VERSION in 2 3; do \
         echo 'import os; import sys; os.environ["MPLCONFIGDIR"] = os.path.join(sys.prefix, "share", "matplotlib")' >> \
              "${SITE_PKGS_PATH}/sitecustomize.py" && \
         python -c "import matplotlib; import matplotlib.pyplot" && \
-        NANSHE_VERSION=`conda list -f nanshe 2>/dev/null | \
-                        tail -1 | \
-                        python -c "from sys import stdin; print(stdin.read().split()[1])"` && \
         conda clean -tipsy && \
         conda deactivate && \
         rm -rf ~/.conda ; \
